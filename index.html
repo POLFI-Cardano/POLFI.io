@@ -822,6 +822,80 @@
             }
             */
         }
+
+        // Fetch real transactions from Cardano blockchain
+        async function fetchPOLFITransactions() {
+            try {
+                // Using Koios API (free Cardano API)
+                const policyId = 'f55f619066979d0c8296ef2bf09dd6668c9c9033b2326cfcdb52b40d';
+                const assetName = '504f4c4954494649';
+                
+                const response = await fetch(`https://api.koios.rest/api/v0/asset_txs?_asset_policy=${policyId}&_asset_name=${assetName}&limit=10`);
+                
+                if (response.ok) {
+                    const txs = await response.json();
+                    displayTransactions(txs);
+                } else {
+                    // Fallback to showing Cardanoscan link
+                    document.getElementById('txLoading').innerHTML = `
+                        <p style="color: var(--accent);">View live transactions on blockchain explorers</p>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error fetching transactions:', error);
+                // Show alternative
+                document.getElementById('txLoading').innerHTML = `
+                    <p style="color: var(--accent);">View live transactions on blockchain explorers</p>
+                `;
+            }
+        }
+
+        // Display transactions in the UI
+        function displayTransactions(transactions) {
+            const txContainer = document.getElementById('transactions');
+            
+            if (!transactions || transactions.length === 0) {
+                txContainer.innerHTML = `
+                    <div style="text-align: center; padding: 20px; color: var(--accent);">
+                        No recent transactions found
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            transactions.forEach(tx => {
+                const date = tx.block_time ? new Date(tx.block_time * 1000).toLocaleString() : 'Pending';
+                const shortHash = tx.tx_hash ? tx.tx_hash.substring(0, 10) + '...' : 'Unknown';
+                
+                html += `
+                    <div style="padding: 15px; border-bottom: 1px solid rgba(0, 212, 255, 0.2);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <a href="https://cardanoscan.io/transaction/${tx.tx_hash}" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   style="color: var(--primary); text-decoration: none;">
+                                    ${shortHash}
+                                </a>
+                            </div>
+                            <div style="color: var(--accent); font-size: 0.9rem;">
+                                ${date}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            txContainer.innerHTML = html;
+        }
+
+        // Load transactions on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchPOLFITransactions();
+            // Refresh every 30 seconds
+            setInterval(fetchPOLFITransactions, 30000);
+        });
     </script>
 </body>
 </html>
