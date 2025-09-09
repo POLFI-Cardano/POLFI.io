@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>POLFI - The Superhero Donkey Fighting Corruption | Cardano</title>
+    <meta name="description" content="POLFI - The blue superhero donkey battles corruption with humor on Cardano. Join the community revolution!">
+    <meta name="keywords" content="POLFI, Cardano, Meme Coin, Cryptocurrency, Anti-Corruption, ADA">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="POLFI - The Superhero Donkey">
+    <meta property="og:description" content="Join the anti-corruption revolution on Cardano!">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00D4FF;
+            --secondary: #FF3B3B;
+            --dark: #1A1A2E;
+            --darker: #0F0F1E;
+            --accent: #FFE66D;
+            --success: #95E77E;
+            --cardano: #0033AD;
+            --warning: #FFA500;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--darker);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(15, 15, 30, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 50px;
+            background: rgba(15, 15, 30, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 50px 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Token Info Card */
+        .token-info-card {
+            background: rgba(26, 26, 46, 0.8);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+        }
+
+        .token-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .token-detail:last-child {
+            border-bottom: none;
+        }
+
+        .token-label {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .token-value {
+            font-family: monospace;
+            color: var(--primary);
+            word-break: break-all;
+        }
+
+        /* Coming Soon Banner */
+        .coming-soon-banner {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1), rgba(255, 59, 59, 0.1));
+            border: 2px solid var(--warning);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .coming-soon-banner h3 {
+            color: var(--warning);
+            margin-bottom: 10px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 50px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 59, 59, 0.05));
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 20px;
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.3);
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* How to Buy Section */
+        .how-to-buy {
+            padding: 100px 50px;
+            background: rgba(26, 26, 46, 0.5);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            background: rgba(26, 26, 46, 0.8);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* Community Section */
+        .community {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 59, 59, 0.05));
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: rgba(26, 26, 46, 0.8);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+        }
+
+        .social-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .social-name {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 50px 30px;
+            background: var(--darker);
+            border-top: 2px solid var(--primary);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .disclaimer {
+            background: rgba(255, 59, 59, 0.1);
+            border: 1px solid var(--secondary);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .disclaimer h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span {
+            width: 28px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 30, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+            
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .hero {
+                padding: 120px 20px 80px;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .stats-container,
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-text">POLFI</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#how-to-buy">How to Buy</a>
+                <a href="#community">Community</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>The Superhero Donkey Fighting Corruption!</h1>
+                <p class="tagline">Cardano's Most Heroic Meme Coin</p>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px; opacity: 0.9;">
+                    Meet POLFI - the blue superhero donkey with a red cape, armed with Cardano power to battle corruption! 
+                    Join our community-driven revolution where humor meets heroism.
+                </p>
+                
+                <div class="coming-soon-banner">
+                    <h3>🚀 DEX Listings Coming Soon!</h3>
+                    <p>Swap functionality and NFT features are under development. Join our community for updates!</p>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#how-to-buy" class="btn-primary">How to Buy POLFI</a>
+                    <a href="#community" class="btn-secondary">Join Community</a>
+                </div>
+            </div>
+            
+            <div>
+                <img src="polfi-mascot.jpg" alt="POLFI - The Superhero Donkey" style="width: 100%; max-width: 450px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3); margin-bottom: 30px; display: block; margin-left: auto; margin-right: auto;">
+                <div class="token-info-card">
+                    <h2 style="text-align: center; margin-bottom: 20px; color: var(--accent);">
+                        TOKEN INFORMATION
+                    </h2>
+                    <div class="token-detail">
+                        <span class="token-label">Token Name:</span>
+                        <span class="token-value">POLFI</span>
+                    </div>
+                    <div class="token-detail">
+                        <span class="token-label">Blockchain:</span>
+                        <span class="token-value">Cardano</span>
+                    </div>
+                    <div class="token-detail">
+                        <span class="token-label">Policy ID:</span>
+                        <span class="token-value" style="font-size: 0.9rem;">f55f619066979d0c8296ef2bf09dd6668c9c9033b2326cfcdb52b40d</span>
+                    </div>
+                    <div class="token-detail">
+                        <span class="token-label">Asset ID:</span>
+                        <span class="token-value">504f4c4954494649</span>
+                    </div>
+                    <div class="token-detail">
+                        <span class="token-label">Total Supply:</span>
+                        <span class="token-value">1,000,000,000 POLFI</span>
+                    </div>
+                    <div class="token-detail">
+                        <span class="token-label">Decimals:</span>
+                        <span class="token-value">6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="tokenomics">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">1B</div>
+                <div class="stat-label">Total Supply</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">40%</div>
+                <div class="stat-label">Community Allocation</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">25%</div>
+                <div class="stat-label">Liquidity Pool</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Decimals</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy Section -->
+    <section class="how-to-buy" id="how-to-buy">
+        <div>
+            <h2 class="section-title">How to Buy POLFI</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Get a Cardano Wallet</h3>
+                    <p>Download and install a Cardano wallet like Lace, Nami, Eternl, or Yoroi to store your ADA and POLFI tokens.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Buy ADA</h3>
+                    <p>Purchase ADA from exchanges like Binance, Coinbase, or Kraken. Transfer it to your Cardano wallet.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Find POLFI on DEX</h3>
+                    <p>Visit Minswap, SundaeSwap, or other Cardano DEXs. Search for POLFI using our policy ID.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Swap ADA for POLFI</h3>
+                    <p>Connect your wallet and swap your ADA for POLFI tokens. Always verify the policy ID before swapping!</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">HODL & Join Community</h3>
+                    <p>Hold your POLFI tokens and join our community to fight corruption together!</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">⚠️</div>
+                    <h3 class="step-title">Verify Policy ID</h3>
+                    <p style="color: var(--warning);">Always verify you're buying the correct token. Check our policy ID before any transaction!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div>
+            <h2 class="section-title">Join Our Community</h2>
+            <div class="social-grid">
+                <a href="https://x.com/CCardano62898" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="social-icon">🐦</div>
+                    <div class="social-name">Twitter/X</div>
+                    <p>Follow for updates</p>
+                </a>
+                <a href="https://discord.gg/BJtF4mhQhw" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="social-icon">💬</div>
+                    <div class="social-name">Discord</div>
+                    <p>Chat with the community</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#community">Community</a>
+                <a href="mailto:contact@polfi.io">Contact</a>
+            </div>
+            
+            <div class="disclaimer">
+                <h3>⚠️ Important Disclaimer</h3>
+                <p>
+                    POLFI is a community meme token on Cardano. Cryptocurrency investments carry risk. 
+                    Never invest more than you can afford to lose. This is not financial advice. 
+                    Always do your own research (DYOR) before investing. Swap and NFT features are under development.
+                </p>
+            </div>
+            
+            <p style="opacity: 0.8; margin-top: 20px;">
+                © 2024 POLFI - The Superhero Donkey. Fighting corruption one meme at a time!
+            </p>
+            <p style="opacity: 0.6; margin-top: 10px; font-size: 0.9rem;">
+                Policy ID: f55f619066979d0c8296ef2bf09dd6668c9c9033b2326cfcdb52b40d
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navLinks = document.getElementById('navLinks');
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Add animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.stat-card, .step-card, .social-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                
+                if (elementTop < window.innerHeight && elementBottom > 0) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize animations
+        window.addEventListener('load', () => {
+            const elements = document.querySelectorAll('.stat-card, .step-card, .social-card');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'all 0.5s ease';
+            });
+            animateOnScroll();
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Console warning for developers
+        console.log('%c⚠️ POLFI Security Notice', 'color: #FF3B3B; font-size: 20px; font-weight: bold;');
+        console.log('%cThis is a browser feature intended for developers. Never paste code here that you don\'t understand!', 'color: #FFE66D; font-size: 14px;');
+        console.log('%cAlways verify the policy ID before any transactions: f55f619066979d0c8296ef2bf09dd6668c9c9033b2326cfcdb52b40d', 'color: #00D4FF; font-size: 12px;');
+    </script>
+</body>
+</html>
