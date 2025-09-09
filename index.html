@@ -6,15 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>POLFI - The Superhero Donkey Fighting Corruption | Cardano</title>
     <meta name="description" content="POLFI - The blue superhero donkey battles corruption with humor on Cardano. Join the community revolution!">
-    <meta name="keywords" content="POLFI, Cardano, Meme Coin, Cryptocurrency, Anti-Corruption, ADA">
-    
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="POLFI - The Superhero Donkey">
-    <meta property="og:description" content="Join the anti-corruption revolution on Cardano!">
-    <meta property="og:type" content="website">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +27,6 @@
             --accent: #FFE66D;
             --success: #95E77E;
             --cardano: #0033AD;
-            --warning: #FFA500;
         }
 
         body {
@@ -56,7 +46,6 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 2px solid var(--primary);
-            transition: all 0.3s ease;
         }
 
         nav.scrolled {
@@ -150,9 +139,10 @@
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             margin-top: 40px;
+            justify-content: center;
         }
 
         .btn-primary, .btn-secondary {
@@ -218,10 +208,32 @@
             word-break: break-all;
         }
 
+        /* Copy Button */
+        .copy-btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .copy-btn.copied {
+            background: linear-gradient(45deg, var(--success), var(--primary));
+        }
+
         /* Coming Soon Banner */
         .coming-soon-banner {
             background: linear-gradient(135deg, rgba(255, 165, 0, 0.1), rgba(255, 59, 59, 0.1));
-            border: 2px solid var(--warning);
+            border: 2px solid #FFA500;
             border-radius: 15px;
             padding: 20px;
             margin: 30px 0;
@@ -229,7 +241,7 @@
         }
 
         .coming-soon-banner h3 {
-            color: var(--warning);
+            color: #FFA500;
             margin-bottom: 10px;
         }
 
@@ -275,6 +287,17 @@
             color: var(--accent);
             margin-top: 10px;
             text-transform: uppercase;
+        }
+
+        /* Chart Section */
+        .chart-section {
+            padding: 80px 50px;
+            background: rgba(26, 26, 46, 0.5);
+        }
+
+        .chart-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* How to Buy Section */
@@ -346,7 +369,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -386,31 +409,6 @@
             text-align: center;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--primary);
-        }
-
         .disclaimer {
             background: rgba(255, 59, 59, 0.1);
             border: 1px solid var(--secondary);
@@ -440,7 +438,6 @@
             height: 3px;
             background: var(--primary);
             border-radius: 2px;
-            transition: all 0.3s ease;
         }
 
         /* Responsive */
@@ -448,10 +445,6 @@
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
-            }
-            
-            .steps-grid {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -487,15 +480,6 @@
             .hero {
                 padding: 120px 20px 80px;
             }
-            
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            
-            .stats-container,
-            .social-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -508,8 +492,8 @@
             </a>
             <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
                 <a href="#tokenomics">Tokenomics</a>
+                <a href="#chart">Chart</a>
                 <a href="#how-to-buy">How to Buy</a>
                 <a href="#community">Community</a>
             </div>
@@ -528,23 +512,32 @@
                 <h1>The Superhero Donkey Fighting Corruption!</h1>
                 <p class="tagline">Cardano's Most Heroic Meme Coin</p>
                 <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px; opacity: 0.9;">
-                    Meet POLFI - the blue superhero donkey with a red cape, armed with Cardano power to battle corruption! 
-                    Join our community-driven revolution where humor meets heroism.
+                    Meet POLFI - the blue superhero donkey with a red cape, armed with Cardano power to battle corruption!
                 </p>
                 
                 <div class="coming-soon-banner">
-                    <h3>🚀 DEX Listings Coming Soon!</h3>
-                    <p>Swap functionality and NFT features are under development. Join our community for updates!</p>
+                    <h3>🚀 Trading Live on TapTools!</h3>
+                    <p>Buy POLFI directly on TapTools or find us on Cardano DEXs</p>
                 </div>
                 
                 <div class="hero-buttons">
-                    <a href="#how-to-buy" class="btn-primary">How to Buy POLFI</a>
+                    <a href="https://www.taptools.io/charts/token/f55f619066979d0c8296ef2bf09dd6668c9c9033b2326cfcdb52b40d.504f4c4954494649" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="btn-primary">
+                        Buy on TapTools 📊
+                    </a>
+                    <a href="#how-to-buy" class="btn-secondary">How to Buy</a>
                     <a href="#community" class="btn-secondary">Join Community</a>
                 </div>
             </div>
             
             <div>
-                <img src="polfi-mascot.jpg" alt="POLFI - The Superhero Donkey" style="width: 100%; max-width: 450px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3); margin-bottom: 30px; display: block; margin-left: auto; margin-right: auto;">
+                <!-- Add your mascot image here -->
+                <img src="polfi-mascot.jpg" 
+                     alt="POLFI - The Superhero Donkey" 
+                     style="width: 100%; max-width: 450px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3); margin-bottom: 30px; display: block; margin-left: auto; margin-right: auto;">
+                
                 <div class="token-info-card">
                     <h2 style="text-align: center; margin-bottom: 20px; color: var(--accent);">
                         TOKEN INFORMATION
@@ -561,9 +554,19 @@
                         <span class="token-label">Policy ID:</span>
                         <span class="token-value" style="font-size: 0.9rem;">f55f619066979d0c8296ef2bf09dd6668c9c9033b2326cfcdb52b40d</span>
                     </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button onclick="copyPolicyID()" class="copy-btn">
+                            <span id="copy-text">Copy Policy ID 📋</span>
+                        </button>
+                    </div>
                     <div class="token-detail">
                         <span class="token-label">Asset ID:</span>
                         <span class="token-value">504f4c4954494649</span>
+                    </div>
+                    <div style="text-align: center; margin-top: 10px;">
+                        <button onclick="copyAssetID()" class="copy-btn" style="padding: 8px 20px; font-size: 0.9rem;">
+                            <span id="copy-asset-text">Copy Asset ID 📋</span>
+                        </button>
                     </div>
                     <div class="token-detail">
                         <span class="token-label">Total Supply:</span>
@@ -600,6 +603,35 @@
         </div>
     </section>
 
+    <!-- Price Chart Section -->
+    <section class="chart-section" id="chart">
+        <div class="chart-container">
+            <h2 class="section-title">Live Chart & Transactions</h2>
+            
+            <!-- TapTools Chart Embed -->
+            <div style="background: rgba(26, 26, 46, 0.8); border: 2px solid var(--primary); border-radius: 20px; padding: 20px; margin-bottom: 30px;">
+                <h3 style="color: var(--accent); margin-bottom: 20px; text-align: center;">Price Chart</h3>
+                <iframe 
+                    src="https://www.taptools.io/charts/embed/token/f55f619066979d0c8296ef2bf09dd6668c9c9033b2326cfcdb52b40d.504f4c4954494649" 
+                    width="100%" 
+                    height="450" 
+                    frameborder="0"
+                    style="border-radius: 10px; background: #1a1a2e;">
+                </iframe>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div style="background: rgba(26, 26, 46, 0.8); border: 2px solid var(--primary); border-radius: 20px; padding: 20px;">
+                <h3 style="color: var(--accent); margin-bottom: 20px; text-align: center;">Recent Transactions</h3>
+                <div id="transactions" style="max-height: 300px; overflow-y: auto;">
+                    <div style="text-align: center; padding: 40px; color: var(--accent);">
+                        Live transactions will appear here once trading volume increases
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- How to Buy Section -->
     <section class="how-to-buy" id="how-to-buy">
         <div>
@@ -608,32 +640,32 @@
                 <div class="step-card">
                     <div class="step-number">1</div>
                     <h3 class="step-title">Get a Cardano Wallet</h3>
-                    <p>Download and install a Cardano wallet like Lace, Nami, Eternl, or Yoroi to store your ADA and POLFI tokens.</p>
+                    <p>Download Lace, Nami, Eternl, or Yoroi wallet</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">2</div>
                     <h3 class="step-title">Get ADA</h3>
-                    <p>Purchase ADA from exchanges like Binance, Coinbase, or Kraken. Transfer it to your Cardano wallet.</p>
+                    <p>Buy ADA from Binance, Coinbase, or Kraken</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">3</div>
                     <h3 class="step-title">Use TapTools</h3>
-                    <p>Click our "Buy on TapTools" button above, connect your wallet, and swap ADA for POLFI directly!</p>
+                    <p>Click our "Buy on TapTools" button and swap!</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">4</div>
                     <h3 class="step-title">Or Find on DEXs</h3>
-                    <p>Visit Minswap, SundaeSwap, or other Cardano DEXs. Search for POLFI using our policy ID.</p>
+                    <p>Search for POLFI on Minswap or SundaeSwap</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">5</div>
-                    <h3 class="step-title">HODL & Join Community</h3>
-                    <p>Hold your POLFI tokens and join our community to fight corruption together!</p>
+                    <h3 class="step-title">HODL & Join</h3>
+                    <p>Hold POLFI and join our community!</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">⚠️</div>
                     <h3 class="step-title">Verify Policy ID</h3>
-                    <p style="color: var(--warning);">Always verify you're buying the correct token. Check our policy ID before any transaction!</p>
+                    <p style="color: #FFA500;">Always check our policy ID before buying!</p>
                 </div>
             </div>
         </div>
@@ -661,19 +693,12 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="#about">About</a>
-                <a href="#tokenomics">Tokenomics</a>
-                <a href="#community">Community</a>
-                <a href="mailto:contact@polfi.io">Contact</a>
-            </div>
-            
             <div class="disclaimer">
                 <h3>⚠️ Important Disclaimer</h3>
                 <p>
                     POLFI is a community meme token on Cardano. Cryptocurrency investments carry risk. 
                     Never invest more than you can afford to lose. This is not financial advice. 
-                    Always do your own research (DYOR) before investing. Swap and NFT features are under development.
+                    Always DYOR before investing.
                 </p>
             </div>
             
@@ -687,6 +712,65 @@
     </footer>
 
     <script>
+        // Copy Policy ID function
+        function copyPolicyID() {
+            const policyID = 'f55f619066979d0c8296ef2bf09dd6668c9c9033b2326cfcdb52b40d';
+            
+            navigator.clipboard.writeText(policyID).then(function() {
+                const copyBtn = document.querySelector('.copy-btn');
+                const copyText = document.getElementById('copy-text');
+                
+                copyBtn.classList.add('copied');
+                copyText.textContent = 'Copied! ✅';
+                
+                setTimeout(function() {
+                    copyBtn.classList.remove('copied');
+                    copyText.textContent = 'Copy Policy ID 📋';
+                }, 2000);
+            }).catch(function(err) {
+                // Fallback for older browsers
+                const textArea = document.createElement("textarea");
+                textArea.value = policyID;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const copyText = document.getElementById('copy-text');
+                copyText.textContent = 'Copied! ✅';
+                setTimeout(function() {
+                    copyText.textContent = 'Copy Policy ID 📋';
+                }, 2000);
+            });
+        }
+
+        // Copy Asset ID function
+        function copyAssetID() {
+            const assetID = '504f4c4954494649';
+            
+            navigator.clipboard.writeText(assetID).then(function() {
+                const copyText = document.getElementById('copy-asset-text');
+                copyText.textContent = 'Copied! ✅';
+                
+                setTimeout(function() {
+                    copyText.textContent = 'Copy Asset ID 📋';
+                }, 2000);
+            }).catch(function(err) {
+                const textArea = document.createElement("textarea");
+                textArea.value = assetID;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const copyText = document.getElementById('copy-asset-text');
+                copyText.textContent = 'Copied! ✅';
+                setTimeout(function() {
+                    copyText.textContent = 'Copy Asset ID 📋';
+                }, 2000);
+            });
+        }
+
         // Mobile menu toggle
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
@@ -703,7 +787,7 @@
             }
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -716,7 +800,7 @@
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
+                    // Close mobile menu
                     const navLinks = document.getElementById('navLinks');
                     if (navLinks.classList.contains('active')) {
                         navLinks.classList.remove('active');
@@ -725,38 +809,19 @@
             });
         });
 
-        // Add animation on scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.stat-card, .step-card, .social-card');
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementBottom = element.getBoundingClientRect().bottom;
-                
-                if (elementTop < window.innerHeight && elementBottom > 0) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
+        // Optional: Fetch transactions when API is ready
+        async function fetchTransactions() {
+            // Uncomment when you have API endpoint
+            /*
+            try {
+                const response = await fetch('YOUR_API_ENDPOINT');
+                const data = await response.json();
+                // Display transactions
+            } catch (error) {
+                console.log('Transactions not available yet');
+            }
+            */
         }
-
-        // Initialize animations
-        window.addEventListener('load', () => {
-            const elements = document.querySelectorAll('.stat-card, .step-card, .social-card');
-            elements.forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'all 0.5s ease';
-            });
-            animateOnScroll();
-        });
-
-        window.addEventListener('scroll', animateOnScroll);
-
-        // Console warning for developers
-        console.log('%c⚠️ POLFI Security Notice', 'color: #FF3B3B; font-size: 20px; font-weight: bold;');
-        console.log('%cThis is a browser feature intended for developers. Never paste code here that you don\'t understand!', 'color: #FFE66D; font-size: 14px;');
-        console.log('%cAlways verify the policy ID before any transactions: f55f619066979d0c8296ef2bf09dd6668c9c9033b2326cfcdb52b40d', 'color: #00D4FF; font-size: 12px;');
     </script>
 </body>
 </html>
